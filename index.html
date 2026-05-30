@@ -17,6 +17,32 @@
             color: #333;
         }
 
+        /* WhatsApp Floating Button */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s;
+            z-index: 99;
+        }
+
+        .whatsapp-button:hover {
+            background: #1da752;
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
         /* Navigation */
         nav {
             background: #2c3e50;
@@ -57,6 +83,68 @@
 
         nav a:hover {
             color: #3498db;
+        }
+
+        /* CTA Bar */
+        .cta-bar {
+            background: linear-gradient(90deg, #f39c12 0%, #e67e22 100%);
+            color: white;
+            padding: 1.2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+        }
+
+        .cta-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .cta-bar-text {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .cta-bar-text h3 {
+            margin: 0;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .cta-bar-text p {
+            margin: 0.3rem 0 0 0;
+            font-size: 0.95rem;
+            opacity: 0.95;
+        }
+
+        .cta-bar-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .cta-bar-button {
+            background: white;
+            color: #f39c12;
+            padding: 0.75rem 1.8rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-bar-button:hover {
+            background: #2c3e50;
+            color: #f39c12;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
         /* Hero Section */
@@ -388,6 +476,53 @@
             display: block;
         }
 
+        /* Contact Section */
+        .contact-section {
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .contact-info h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .whatsapp-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #25D366;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-link:hover {
+            background: #1da752;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+        }
+
         /* CTA Section */
         .cta-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -452,10 +587,41 @@
             .pricing-amount {
                 font-size: 2rem;
             }
+
+            .cta-bar .container {
+                flex-direction: column;
+            }
+
+            .cta-bar-text {
+                min-width: auto;
+            }
+
+            .cta-bar-buttons {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .cta-bar-button {
+                flex: 1;
+                min-width: 120px;
+            }
+
+            .whatsapp-button {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/2349079766694?text=Hi%20Providence%20Publishers%2C%20I%20am%20interested%20in%20your%20Exam%20Packs" target="_blank" class="whatsapp-button" title="Chat with us on WhatsApp">
+        💬
+    </a>
+
     <!-- Navigation -->
     <nav>
         <div class="container">
@@ -464,10 +630,25 @@
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#audience">For You</a></li>
+                <li><a href="#contact">Contact</a></li>
                 <li><a href="#faq">FAQ</a></li>
             </ul>
         </div>
     </nav>
+
+    <!-- CTA Bar -->
+    <div class="cta-bar">
+        <div class="container">
+            <div class="cta-bar-text">
+                <h3>🎯 Limited Time Offer</h3>
+                <p>Get Your Complete Exam Pack Now - Download & Start Using Today!</p>
+            </div>
+            <div class="cta-bar-buttons">
+                <button class="cta-bar-button" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})">Buy Now</button>
+                <a href="https://wa.me/2349079766694?text=Hi%20Providence%20Publishers%2C%20I%20am%20interested%20in%20your%20Exam%20Packs" target="_blank" class="cta-bar-button">WhatsApp Us</a>
+            </div>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -641,6 +822,23 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-info">
+                <h3>📞 Need Help? Contact Us</h3>
+                <p>Have questions about our Exam Packs? Want to discuss bulk purchases or customization? Reach out to us on WhatsApp!</p>
+                <a href="https://wa.me/2349079766694?text=Hi%20Providence%20Publishers%2C%20I%20am%20interested%20in%20your%20Exam%20Packs" target="_blank" class="whatsapp-link">
+                    💬 Chat on WhatsApp: +234 907 976 6694
+                </a>
+                <p style="margin-top: 1.5rem; font-size: 0.95rem; color: #666;">
+                    Available Monday - Friday, 9:00 AM - 6:00 PM WAT
+                </p>
+            </div>
+        </div>
+    </section>
+
     <!-- FAQ Section -->
     <section class="faq" id="faq">
         <div class="container">
@@ -694,7 +892,7 @@
                         <span>+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Absolutely! Many schools purchase all three packs for comprehensive coverage. We offer special discounts for bulk purchases. Contact us for bulk pricing.</p>
+                        <p>Absolutely! Many schools purchase all three packs for comprehensive coverage. We offer special discounts for bulk purchases. Contact us on WhatsApp for bulk pricing.</p>
                     </div>
                 </div>
 
@@ -704,7 +902,7 @@
                         <span>+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>We accept multiple payment methods including bank transfers, online payment platforms, and other Nigerian payment options. Contact us for specific payment method details.</p>
+                        <p>We accept multiple payment methods including bank transfers, online payment platforms, and other Nigerian payment options. Contact us on WhatsApp for specific payment method details.</p>
                     </div>
                 </div>
 
@@ -735,7 +933,7 @@
         <div class="container">
             <p>&copy; 2026 Providence Publishers. All rights reserved.</p>
             <p><a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a> | <a href="#contact">Contact Us</a></p>
-            <p>Email: providencepublishers247@gmail.com</p>
+            <p>Email: providencepublishers247@gmail.com | WhatsApp: <a href="https://wa.me/2349079766694">+234 907 976 6694</a></p>
         </div>
     </footer>
 
@@ -760,10 +958,13 @@
         // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
+                const href = this.getAttribute('href');
+                if (href.startsWith('#') && href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
                 }
             });
         });
