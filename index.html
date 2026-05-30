@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exam Pack - Your Complete Educational Resource</title>
+    <title>Nursery School Exam Pack - Complete Assessment Resources | ₦7500</title>
     <style>
         * {
             margin: 0;
@@ -78,10 +78,29 @@
             line-height: 1.2;
         }
 
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #ffd700;
+            font-weight: bold;
+        }
+
         .hero p {
             font-size: 1.3rem;
             margin-bottom: 2rem;
             opacity: 0.95;
+        }
+
+        .hero .price-badge {
+            background: #f39c12;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         .cta-button {
@@ -102,6 +121,15 @@
             transform: translateY(-2px);
         }
 
+        .cta-button.secondary {
+            background: #27ae60;
+            margin-left: 1rem;
+        }
+
+        .cta-button.secondary:hover {
+            background: #229954;
+        }
+
         /* Container */
         .container {
             max-width: 1200px;
@@ -118,6 +146,24 @@
             margin-bottom: 2rem;
             text-align: center;
             color: #2c3e50;
+        }
+
+        /* About Nursery Section */
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #555;
+            line-height: 1.8;
         }
 
         /* Audience Section */
@@ -183,6 +229,62 @@
             margin-bottom: 0.5rem;
         }
 
+        /* What's Included Section */
+        .included {
+            background: #f8f9fa;
+        }
+
+        .included-list {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .included-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .included-item h4 {
+            color: #27ae60;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Age Groups Section */
+        .age-groups {
+            background: white;
+        }
+
+        .age-groups-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .age-group-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .age-group-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .age-group-card p {
+            opacity: 0.9;
+        }
+
         /* Testimonials */
         .testimonials {
             background: #f8f9fa;
@@ -212,6 +314,53 @@
         .testimonial-author {
             font-weight: bold;
             color: #667eea;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: white;
+        }
+
+        .pricing-card {
+            max-width: 500px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        .pricing-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-amount {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 1.5rem 0;
+            color: #ffd700;
+        }
+
+        .pricing-list {
+            text-align: left;
+            margin: 2rem 0;
+        }
+
+        .pricing-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .pricing-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #ffd700;
+            font-weight: bold;
         }
 
         /* FAQ Section */
@@ -298,12 +447,22 @@
                 font-size: 2rem;
             }
 
+            .cta-button.secondary {
+                margin-left: 0;
+                margin-top: 1rem;
+                display: block;
+            }
+
             section {
                 padding: 2rem 1rem;
             }
 
             section h2 {
                 font-size: 1.8rem;
+            }
+
+            .pricing-amount {
+                font-size: 2.5rem;
             }
         }
     </style>
@@ -312,11 +471,12 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <div class="logo">📚 Exam Pack</div>
+            <div class="logo">📚 Nursery School Exam Pack</div>
             <ul>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#audience">For You</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#included">What's Inside</a></li>
+                <li><a href="#age-groups">Age Groups</a></li>
+                <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#faq">FAQ</a></li>
             </ul>
         </div>
@@ -325,91 +485,186 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Master Your Exams with Exam Pack</h1>
-            <p>Comprehensive study materials and resources designed for educators, school owners, parents, and homeschoolers</p>
-            <button class="cta-button">Get Your Free Exam Pack Today</button>
+            <h1>Nursery School Exam Pack</h1>
+            <p class="subtitle">Complete Assessment & Learning Resources for Early Childhood Education</p>
+            <div class="price-badge">₦7,500</div>
+            <p>Everything you need to assess and support your nursery school students</p>
+            <button class="cta-button">Get Started Now</button>
+            <button class="cta-button secondary">Download Free Sample</button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About Our Nursery School Exam Pack</h2>
+            <div class="about-content">
+                <p>The Nursery School Exam Pack is a comprehensive collection of assessment tools, learning activities, and classroom resources designed specifically for early childhood education. It's perfect for teachers, school administrators, and parents who want to ensure proper development and learning progression in nursery school.</p>
+                <p>Our resources are age-appropriate, engaging, and aligned with early childhood development standards. Everything is ready-to-use, printable, and designed to make classroom management and student assessment seamless.</p>
+            </div>
         </div>
     </section>
 
     <!-- Audience Section -->
-    <section class="audience" id="audience">
+    <section class="audience">
         <div class="container">
-            <h2>Made for Everyone Who Cares About Education</h2>
+            <h2>Perfect For</h2>
             <div class="audience-grid">
                 <div class="audience-card">
-                    <div class="icon">👨‍🏫</div>
-                    <h3>For Educators</h3>
-                    <p>Save hours on lesson planning with ready-to-use exam prep materials, answer keys, and teaching guides.</p>
+                    <div class="icon">👩‍🏫</div>
+                    <h3>Nursery Teachers</h3>
+                    <p>Save time on lesson planning and student assessment with ready-to-use materials and resources.</p>
                 </div>
                 <div class="audience-card">
                     <div class="icon">🏫</div>
-                    <h3>For School Owners</h3>
-                    <p>Standardize your curriculum, improve student outcomes, and provide consistent quality across your institution.</p>
+                    <h3>School Owners</h3>
+                    <p>Standardize assessment across your nursery school and track student development systematically.</p>
                 </div>
                 <div class="audience-card">
                     <div class="icon">👨‍👩‍👧</div>
-                    <h3>For Parents</h3>
-                    <p>Support your child's learning with structured study guides, practice tests, and confidence-building resources.</p>
+                    <h3>Parents</h3>
+                    <p>Understand your child's development and reinforce learning at home with provided activities.</p>
                 </div>
                 <div class="audience-card">
                     <div class="icon">🏠</div>
-                    <h3>For Homeschoolers</h3>
-                    <p>Access a complete curriculum with organized lessons, assessments, and progress tracking tools.</p>
+                    <h3>Homeschoolers</h3>
+                    <p>Access structured early childhood learning activities and assessment tools for your little ones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's Included Section -->
+    <section class="included" id="included">
+        <div class="container">
+            <h2>What's Included in the Pack</h2>
+            <div class="included-list">
+                <div class="included-item">
+                    <h4>✓ Assessment Tests</h4>
+                    <p>Complete assessment forms for evaluating literacy, numeracy, and developmental milestones</p>
+                </div>
+                <div class="included-item">
+                    <h4>✓ Learning Activities</h4>
+                    <p>40+ age-appropriate activities covering colors, shapes, numbers, letters, and social skills</p>
+                </div>
+                <div class="included-item">
+                    <h4>✓ Classroom Templates</h4>
+                    <p>Ready-to-print classroom management tools, attendance sheets, and progress tracking forms</p>
+                </div>
+                <div class="included-item">
+                    <h4>✓ Parent Communication</h4>
+                    <p>Templates for progress reports and parent-teacher communication forms</p>
+                </div>
+                <div class="included-item">
+                    <h4>✓ Lesson Plans</h4>
+                    <p>Structured lesson plans for all major learning areas aligned with nursery curriculum</p>
+                </div>
+                <div class="included-item">
+                    <h4>✓ Development Checklists</h4>
+                    <p>Comprehensive checklists to monitor physical, cognitive, and social-emotional development</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Age Groups Section -->
+    <section class="age-groups" id="age-groups">
+        <div class="container">
+            <h2>Suitable Age Groups</h2>
+            <div class="age-groups-grid">
+                <div class="age-group-card">
+                    <h3>👶 Ages 2-3</h3>
+                    <p>Toddler development activities and early learning assessments</p>
+                </div>
+                <div class="age-group-card">
+                    <h3>👧 Ages 3-4</h3>
+                    <p>Pre-nursery skills and foundational learning activities</p>
+                </div>
+                <div class="age-group-card">
+                    <h3>👦 Ages 4-5</h3>
+                    <p>Nursery school activities and school readiness assessments</p>
+                </div>
+                <div class="age-group-card">
+                    <h3>🎓 Ages 5-6</h3>
+                    <p>Pre-primary preparation and transition activities</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="features" id="features">
+    <section class="features">
         <div class="container">
-            <h2>What's Inside Exam Pack</h2>
+            <h2>Key Features</h2>
             <div class="features-grid">
                 <div class="feature-item">
-                    <h3>✓ Complete Study Guides</h3>
-                    <p>Comprehensive coverage of all major topics with clear explanations and practical examples.</p>
+                    <h3>✓ Developmentally Appropriate</h3>
+                    <p>All activities and assessments are designed with early childhood development in mind.</p>
                 </div>
                 <div class="feature-item">
-                    <h3>✓ Practice Tests</h3>
-                    <p>Full-length and topic-specific practice exams that mirror real test formats and difficulty levels.</p>
+                    <h3>✓ Easy to Implement</h3>
+                    <p>Clear instructions and ready-to-use formats make implementation straightforward.</p>
                 </div>
                 <div class="feature-item">
-                    <h3>✓ Answer Keys & Solutions</h3>
-                    <p>Detailed explanations for every question to help learners understand not just the answers, but the reasoning.</p>
+                    <h3>✓ Colorful & Engaging</h3>
+                    <p>Visual resources that capture children's attention and encourage participation.</p>
                 </div>
                 <div class="feature-item">
-                    <h3>✓ Teaching Resources</h3>
-                    <p>Lesson plans, PowerPoint presentations, and classroom activity guides for educators.</p>
+                    <h3>✓ Fully Printable</h3>
+                    <p>All materials come in PDF format, ready to print and use immediately.</p>
                 </div>
                 <div class="feature-item">
                     <h3>✓ Progress Tracking</h3>
-                    <p>Tools to monitor student progress and identify areas that need additional focus.</p>
+                    <p>Tools to systematically monitor each child's development and learning progress.</p>
                 </div>
                 <div class="feature-item">
-                    <h3>✓ Downloadable & Printable</h3>
-                    <p>All materials available in formats you can print, share, or customize for your needs.</p>
+                    <h3>✓ Parent Engagement</h3>
+                    <p>Resources to involve parents in their child's learning journey at home.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
+    <section class="testimonials">
         <div class="container">
             <h2>What Users Are Saying</h2>
             <div class="testimonials-grid">
                 <div class="testimonial">
-                    <p>"Exam Pack transformed how I prepare my students for exams. The materials are comprehensive and easy to implement in my classroom."</p>
-                    <div class="testimonial-author">- Maria, High School Teacher</div>
+                    <p>"The Nursery School Exam Pack transformed how I assess my students. The materials are colorful, engaging, and so easy to use. My parents love the progress reports!"</p>
+                    <div class="testimonial-author">- Mrs. Adeyemi, Nursery Teacher</div>
                 </div>
                 <div class="testimonial">
-                    <p>"As a homeschooling parent, I was overwhelmed with curriculum choices. Exam Pack gave me structure and confidence in my teaching."</p>
-                    <div class="testimonial-author">- James, Homeschool Parent</div>
+                    <p>"As a school owner, I needed a standardized system for all our nursery classrooms. This pack gave us exactly that. Worth every naira!"</p>
+                    <div class="testimonial-author">- Mr. Okonkwo, School Principal</div>
                 </div>
                 <div class="testimonial">
-                    <p>"Our school adopted Exam Pack across all grades. Test scores improved, and teachers saved hours on preparation."</p>
-                    <div class="testimonial-author">- Dr. Patricia, School Principal</div>
+                    <p>"I use these activities at home with my daughter. She loves them, and I can see her improvement in just a few weeks. Highly recommended!"</p>
+                    <div class="testimonial-author">- Chioma, Parent</div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>Affordable Quality Education Resources</h2>
+            <div class="pricing-card">
+                <h3>One-Time Payment</h3>
+                <div class="pricing-amount">₦7,500</div>
+                <p style="margin-bottom: 2rem; font-size: 1.1rem;">Get lifetime access to all materials</p>
+                <ul class="pricing-list">
+                    <li>40+ Learning Activities</li>
+                    <li>Complete Assessment Suite</li>
+                    <li>Classroom Templates</li>
+                    <li>Lesson Plans & Guides</li>
+                    <li>Development Checklists</li>
+                    <li>Parent Communication Tools</li>
+                    <li>All materials in PDF format</li>
+                    <li>Future updates included</li>
+                </ul>
+                <button class="cta-button" style="width: 100%; margin-top: 1rem;">Purchase Now - ₦7,500</button>
             </div>
         </div>
     </section>
@@ -421,51 +676,71 @@
             <div class="faq-container">
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>What subjects and grades does Exam Pack cover?</span>
+                        <span>What age groups does this pack cover?</span>
                         <span>+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Exam Pack includes materials for multiple subjects across grades 6-12, including Math, Science, English, History, and more. Each subject has comprehensive coverage aligned with standard curricula.</p>
+                        <p>The Nursery School Exam Pack is designed for children ages 2-6 years old, covering toddler, nursery 1, nursery 2, and nursery 3 levels with age-appropriate activities and assessments.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>Can I print and share these materials?</span>
+                        <span>Can I print and share these materials with my class?</span>
                         <span>+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes! All materials come in printable PDF format. Teachers and school owners can distribute materials to their students. Please review the specific license terms for your usage rights.</p>
+                        <p>Yes! All materials are in printable PDF format. Teachers and school owners can print and use materials with their students. Please refer to the license terms for specific usage rights.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>Is there a free trial available?</span>
+                        <span>Is there a free sample available?</span>
                         <span>+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes! Download our free sample pack to see the quality and format of our materials. This includes a full practice test with answer key from one subject.</p>
+                        <p>Yes! We offer a free sample pack that includes 5 complete activities and a sample assessment form so you can see the quality and format of our materials before purchasing.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>How often is the content updated?</span>
+                        <span>What payment methods do you accept?</span>
                         <span>+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>We continuously update our materials to reflect current curriculum standards and exam formats. Subscribers receive all updates at no additional cost.</p>
+                        <p>We accept multiple payment methods including bank transfers, online payment platforms, and other Nigerian payment options. Contact us for specific details on available payment methods.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>What if I need customization for my school?</span>
+                        <span>How do I get my materials after purchase?</span>
                         <span>+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>We offer customization services for schools and institutions. Contact our team to discuss your specific needs and how we can tailor our materials for your curriculum.</p>
+                        <p>After payment confirmation, you'll receive a download link via email with all the materials in a single ZIP file. You can extract and start using them immediately.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Can I customize the materials for my school?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The materials are in editable PDF format, so you can add your school name and make minor adjustments. For extensive customization, contact us to discuss custom package options.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Is there a money-back guarantee?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We're confident you'll love our materials! We offer a 7-day satisfaction guarantee. If you're not satisfied, contact us for a full refund.</p>
                     </div>
                 </div>
             </div>
@@ -475,17 +750,18 @@
     <!-- Final CTA Section -->
     <section class="cta-section">
         <div class="container">
-            <h2>Ready to Transform Your Teaching & Learning?</h2>
-            <p>Join thousands of educators, parents, and students who are achieving better exam results with Exam Pack</p>
-            <button class="cta-button">Download Exam Pack Now</button>
+            <h2>Transform Your Nursery School Today</h2>
+            <p>Join hundreds of educators using our Nursery School Exam Pack to improve student learning and development</p>
+            <button class="cta-button">Purchase for ₦7,500</button>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 Exam Pack. All rights reserved.</p>
+            <p>&copy; 2026 Providence Publishers. All rights reserved.</p>
             <p><a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a> | <a href="#contact">Contact Us</a></p>
+            <p>Email: providencepublishers247@gmail.com</p>
         </div>
     </footer>
 
