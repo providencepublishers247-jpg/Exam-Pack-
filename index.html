@@ -52,15 +52,10 @@
             top: 0;
             z-index: 100;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        nav .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1rem 2rem;
         }
 
         nav .logo {
@@ -85,6 +80,20 @@
             color: #3498db;
         }
 
+        nav .account-btn {
+            background: #3498db;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+            color: white;
+            font-weight: 600;
+        }
+
+        nav .account-btn:hover {
+            background: #2980b9;
+        }
+
         /* CTA Bar */
         .cta-bar {
             background: linear-gradient(90deg, #f39c12 0%, #e67e22 100%);
@@ -95,6 +104,9 @@
         }
 
         .cta-bar .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -551,6 +563,7 @@
             height: 100%;
             background-color: rgba(0,0,0,0.5);
             animation: fadeIn 0.3s;
+            overflow-y: auto;
         }
 
         @keyframes fadeIn {
@@ -564,7 +577,7 @@
             padding: 2rem;
             border-radius: 8px;
             width: 90%;
-            max-width: 500px;
+            max-width: 600px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
 
@@ -620,6 +633,140 @@
             margin: 0.5rem 0;
         }
 
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.2);
+        }
+
+        .payment-methods {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .payment-method {
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .payment-method:hover {
+            border-color: #667eea;
+            background: rgba(102, 126, 234, 0.05);
+        }
+
+        .payment-method.selected {
+            border-color: #667eea;
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .success-message {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .download-link {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .download-link a {
+            color: #2196F3;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .download-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Account Dashboard */
+        .dashboard {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .dashboard-section {
+            margin-bottom: 2rem;
+        }
+
+        .dashboard-section h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .purchase-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .purchase-details h4 {
+            margin: 0 0 0.5rem 0;
+            color: #2c3e50;
+        }
+
+        .purchase-details p {
+            margin: 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .purchase-action {
+            background: #27ae60;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .purchase-action:hover {
+            background: #229954;
+        }
+
         /* Footer */
         footer {
             background: #2c3e50;
@@ -639,6 +786,11 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
             nav ul {
                 display: none;
             }
@@ -698,6 +850,21 @@
                 width: 95%;
                 margin: 10% auto;
             }
+
+            .payment-methods {
+                grid-template-columns: 1fr;
+            }
+
+            .purchase-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .purchase-action {
+                margin-top: 1rem;
+                width: 100%;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -709,16 +876,15 @@
 
     <!-- Navigation -->
     <nav>
-        <div class="container">
-            <div class="logo">📚 Exam Pack</div>
-            <ul>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#audience">For You</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#faq">FAQ</a></li>
-            </ul>
-        </div>
+        <div class="logo">📚 Exam Pack</div>
+        <ul>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#audience">For You</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <button class="account-btn" onclick="openAccountModal()">My Account</button>
     </nav>
 
     <!-- CTA Bar -->
@@ -772,7 +938,7 @@
                         <li>Parent Communication Tools</li>
                         <li>Progress Tracking Forms</li>
                     </ul>
-                    <button class="cta-button" onclick="openPurchaseModal('Nursery School Pack', 7500)">Get Nursery Pack</button>
+                    <button class="cta-button" onclick="openPaymentModal('Nursery School Pack', 7500, 'nursery-pack')">Get Nursery Pack</button>
                 </div>
 
                 <!-- Lower Primary Pack -->
@@ -795,7 +961,7 @@
                         <li style="margin-left: 1rem;">• Science</li>
                         <li style="margin-left: 1rem;">• Social Studies</li>
                     </ul>
-                    <button class="cta-button" onclick="openPurchaseModal('Lower Primary Pack', 5000)">Get Lower Primary Pack</button>
+                    <button class="cta-button" onclick="openPaymentModal('Lower Primary Pack', 5000, 'lower-primary-pack')">Get Lower Primary Pack</button>
                 </div>
 
                 <!-- Higher Primary Pack -->
@@ -818,7 +984,7 @@
                         <li style="margin-left: 1rem;">• Science & Technology</li>
                         <li style="margin-left: 1rem;">• Social Studies</li>
                     </ul>
-                    <button class="cta-button" onclick="openPurchaseModal('Higher Primary Pack', 5000)">Get Higher Primary Pack</button>
+                    <button class="cta-button" onclick="openPaymentModal('Higher Primary Pack', 5000, 'higher-primary-pack')">Get Higher Primary Pack</button>
                 </div>
             </div>
         </div>
@@ -967,7 +1133,7 @@
                         <span>+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>After payment confirmation, you'll receive a download link via email with all materials in a single ZIP file. Extract and start using immediately - no software needed.</p>
+                        <p>After payment confirmation, you'll receive a download link immediately on this page and via email with all materials in a single ZIP file. Extract and start using immediately - no software needed.</p>
                     </div>
                 </div>
 
@@ -987,7 +1153,7 @@
                         <span>+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>We accept multiple payment methods including bank transfers, online payment platforms, and other Nigerian payment options. Contact us on WhatsApp for specific payment methods.</p>
+                        <p>We accept Bank Transfer, Debit Card, and other Nigerian payment options. During checkout, you'll see all available payment methods for your region.</p>
                     </div>
                 </div>
 
@@ -1022,25 +1188,108 @@
         </div>
     </footer>
 
-    <!-- Purchase Modal -->
-    <div id="purchaseModal" class="modal">
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 id="modalTitle">Pack Title</h2>
-                <button class="close-modal" onclick="closePurchaseModal()">&times;</button>
+                <h2>Complete Your Purchase</h2>
+                <button class="close-modal" onclick="closePaymentModal()">&times;</button>
             </div>
             <div class="modal-body">
-                <p><strong>Price:</strong> <span id="modalPrice">₦5,000</span></p>
-                <p style="margin-top: 1.5rem;">Thank you for your interest! To complete your purchase, please:</p>
-                <ol style="margin-top: 1rem; padding-left: 1.5rem;">
-                    <li>Click the WhatsApp button below</li>
-                    <li>Tell us which pack you'd like to purchase</li>
-                    <li>Receive payment instructions</li>
-                    <li>Get your download link after confirmation</li>
-                </ol>
-                <a href="https://wa.me/2349079766694?text=Hi%20Providence%20Publishers%2C%20I%20want%20to%20buy%20an%20Exam%20Pack" target="_blank" class="whatsapp-link" style="margin-top: 1.5rem; justify-content: center;">
-                    💬 Complete Purchase on WhatsApp
-                </a>
+                <h3 id="checkoutPackName">Pack Name</h3>
+                <p>Price: <strong id="checkoutPrice">₦5,000</strong></p>
+
+                <form id="paymentForm">
+                    <div class="form-group">
+                        <label for="customerEmail">Email Address *</label>
+                        <input type="email" id="customerEmail" required placeholder="your@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customerName">Full Name *</label>
+                        <input type="text" id="customerName" required placeholder="Your Full Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Payment Method *</label>
+                        <div class="payment-methods">
+                            <div class="payment-method selected" onclick="selectPaymentMethod(this, 'bank')">
+                                <strong>Bank Transfer</strong>
+                            </div>
+                            <div class="payment-method" onclick="selectPaymentMethod(this, 'card')">
+                                <strong>Debit Card</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="cta-button" style="width: 100%;" onclick="processPayment()">
+                        Proceed to Payment
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>✓ Payment Successful!</h2>
+                <button class="close-modal" onclick="closeSuccessModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="success-message">
+                    Your purchase has been processed successfully!
+                </div>
+
+                <h3>Thank you, <span id="successName">User</span>!</h3>
+                <p>Your exam pack is ready for download. A confirmation email has been sent to <strong id="successEmail">email@example.com</strong></p>
+
+                <h3>Your Download Links:</h3>
+                <div class="download-link">
+                    <a href="#" id="downloadLink1" onclick="simulateDownload(event)">
+                        📥 Download <span id="downloadName">Exam Pack</span> (ZIP)
+                    </a>
+                </div>
+
+                <h3>Invoice:</h3>
+                <div class="download-link">
+                    <a href="#" onclick="downloadInvoice(event)">
+                        📄 Download Invoice & Receipt (PDF)
+                    </a>
+                </div>
+
+                <h3>What's Next?</h3>
+                <ul>
+                    <li>Extract the ZIP file to your computer</li>
+                    <li>All materials are in PDF format and ready to use</li>
+                    <li>You can print, share with students, or customize as needed</li>
+                    <li>Check your email for additional resources and instructions</li>
+                </ul>
+
+                <p style="margin-top: 1.5rem; padding: 1rem; background: #f0f0f0; border-radius: 5px;">
+                    Need help? Contact us on <a href="https://wa.me/2349079766694" target="_blank" style="color: #25D366; font-weight: 600;">WhatsApp</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Account Dashboard Modal -->
+    <div id="accountModal" class="modal">
+        <div class="modal-content" style="max-width: 800px;">
+            <div class="modal-header">
+                <h2>My Account</h2>
+                <button class="close-modal" onclick="closeAccountModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="dashboard">
+                    <div class="dashboard-section">
+                        <h3>👤 Your Purchases</h3>
+                        <div id="purchasesList">
+                            <p style="color: #666;">No purchases yet. <button onclick="closeAccountModal(); scrollToPricing();" style="background: none; color: #667eea; border: none; cursor: pointer; text-decoration: underline;">Browse packs</button></p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -1062,7 +1311,7 @@
                     <li>Overview of all pack contents</li>
                 </ul>
                 <p style="margin-top: 1.5rem;"><strong>To get your free sample:</strong></p>
-                <a href="https://wa.me/2349079766694?text=Hi%20Providence%20Publishers%2C%20I%20would%20like%20to%20download%20your%20free%20sample%20pack" target="_blank" class="whatsapp-link" style="margin-top: 1rem; justify-content: center;">
+                <a href="https://wa.me/2349079766694?text=Hi%20Providence%20Publishers%2C%20I%20would%20like%20to%20download%20your%20free%20sample%20pack" target="_blank" class="whatsapp-link" style="margin-top: 1rem; justify-content: center; width: 100%;">
                     💬 Request Free Sample
                 </a>
             </div>
@@ -1070,17 +1319,57 @@
     </div>
 
     <script>
+        // Product Database
+        const products = {
+            'nursery-pack': {
+                name: 'Nursery School Pack',
+                price: 7500,
+                url: 'https://example.com/downloads/nursery-pack.zip'
+            },
+            'lower-primary-pack': {
+                name: 'Lower Primary Pack',
+                price: 5000,
+                url: 'https://example.com/downloads/lower-primary-pack.zip'
+            },
+            'higher-primary-pack': {
+                name: 'Higher Primary Pack',
+                price: 5000,
+                url: 'https://example.com/downloads/higher-primary-pack.zip'
+            }
+        };
+
+        // User Data (stored in localStorage)
+        let currentUser = null;
+        let selectedPaymentMethod = 'bank';
+        let currentProductId = null;
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadUserData();
+        });
+
+        function loadUserData() {
+            const userData = localStorage.getItem('examPackUser');
+            if (userData) {
+                currentUser = JSON.parse(userData);
+            }
+        }
+
+        function saveUserData() {
+            if (currentUser) {
+                localStorage.setItem('examPackUser', JSON.stringify(currentUser));
+            }
+        }
+
         function toggleFaq(element) {
             const answer = element.nextElementSibling;
             const isActive = answer.classList.contains('active');
             
-            // Close all other FAQs
             document.querySelectorAll('.faq-answer.active').forEach(el => {
                 el.classList.remove('active');
                 el.previousElementSibling.querySelector('span:last-child').textContent = '+';
             });
             
-            // Toggle current FAQ
             if (!isActive) {
                 answer.classList.add('active');
                 element.querySelector('span:last-child').textContent = '−';
@@ -1092,15 +1381,114 @@
             pricingSection.scrollIntoView({ behavior: 'smooth' });
         }
 
-        function openPurchaseModal(packName, price) {
-            const modal = document.getElementById('purchaseModal');
-            document.getElementById('modalTitle').textContent = packName;
-            document.getElementById('modalPrice').textContent = '₦' + price.toLocaleString();
-            modal.style.display = 'block';
+        function openPaymentModal(packName, price, productId) {
+            currentProductId = productId;
+            document.getElementById('checkoutPackName').textContent = packName;
+            document.getElementById('checkoutPrice').textContent = '₦' + price.toLocaleString();
+            document.getElementById('paymentModal').style.display = 'block';
+            selectedPaymentMethod = 'bank';
         }
 
-        function closePurchaseModal() {
-            document.getElementById('purchaseModal').style.display = 'none';
+        function closePaymentModal() {
+            document.getElementById('paymentModal').style.display = 'none';
+            document.getElementById('paymentForm').reset();
+        }
+
+        function selectPaymentMethod(element, method) {
+            document.querySelectorAll('.payment-method').forEach(el => {
+                el.classList.remove('selected');
+            });
+            element.classList.add('selected');
+            selectedPaymentMethod = method;
+        }
+
+        function processPayment() {
+            const email = document.getElementById('customerEmail').value;
+            const name = document.getElementById('customerName').value;
+
+            if (!email || !name) {
+                alert('Please fill in all required fields');
+                return;
+            }
+
+            // Simulate payment processing
+            closePaymentModal();
+            
+            // Create user record
+            currentUser = {
+                name: name,
+                email: email,
+                purchases: currentUser ? currentUser.purchases : []
+            };
+
+            // Add purchase
+            const product = products[currentProductId];
+            const purchase = {
+                id: Date.now(),
+                productId: currentProductId,
+                productName: product.name,
+                price: product.price,
+                paymentMethod: selectedPaymentMethod,
+                date: new Date().toLocaleDateString(),
+                downloaded: false
+            };
+
+            currentUser.purchases.push(purchase);
+            saveUserData();
+
+            // Show success modal
+            document.getElementById('successName').textContent = name;
+            document.getElementById('successEmail').textContent = email;
+            document.getElementById('downloadName').textContent = product.name;
+            document.getElementById('successModal').style.display = 'block';
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('successModal').style.display = 'none';
+        }
+
+        function simulateDownload(e) {
+            e.preventDefault();
+            if (currentUser && currentUser.purchases.length > 0) {
+                const lastPurchase = currentUser.purchases[currentUser.purchases.length - 1];
+                const product = products[lastPurchase.productId];
+                alert(`Download started: ${product.name}\n\nIn a real system, this would download: ${product.url}`);
+                lastPurchase.downloaded = true;
+                saveUserData();
+            }
+        }
+
+        function downloadInvoice(e) {
+            e.preventDefault();
+            if (currentUser && currentUser.purchases.length > 0) {
+                const lastPurchase = currentUser.purchases[currentUser.purchases.length - 1];
+                const product = products[lastPurchase.productId];
+                const invoice = `INVOICE & RECEIPT\n================\n\nDate: ${lastPurchase.date}\nInvoice #: INV-${lastPurchase.id}\n\nCustomer: ${currentUser.name}\nEmail: ${currentUser.email}\n\nProduct: ${product.name}\nPrice: ₦${product.price.toLocaleString()}\nPayment: ${lastPurchase.paymentMethod}\n\nThank you!`;
+                alert(invoice);
+            }
+        }
+
+        function openAccountModal() {
+            loadUserData();
+            const purchasesList = document.getElementById('purchasesList');
+            
+            if (currentUser && currentUser.purchases.length > 0) {
+                purchasesList.innerHTML = currentUser.purchases.map(purchase => {
+                    const product = products[purchase.productId];
+                    return `<div class="purchase-item"><div class="purchase-details"><h4>${product.name}</h4><p>Purchased: ${purchase.date}</p><p>Price: ₦${product.price.toLocaleString()}</p></div><button class="purchase-action" onclick="downloadPurchase('${purchase.productId}')">📥 Download</button></div>`;
+                }).join('');
+            }
+
+            document.getElementById('accountModal').style.display = 'block';
+        }
+
+        function closeAccountModal() {
+            document.getElementById('accountModal').style.display = 'none';
+        }
+
+        function downloadPurchase(productId) {
+            const product = products[productId];
+            alert(`Download: ${product.name}\nURL: ${product.url}`);
         }
 
         function openFreeTrialModal() {
@@ -1111,29 +1499,27 @@
             document.getElementById('freeTrialModal').style.display = 'none';
         }
 
-        // Close modal when clicking outside of it
+        // Close modal when clicking outside
         window.onclick = function(event) {
-            const purchaseModal = document.getElementById('purchaseModal');
+            const paymentModal = document.getElementById('paymentModal');
+            const successModal = document.getElementById('successModal');
+            const accountModal = document.getElementById('accountModal');
             const freeTrialModal = document.getElementById('freeTrialModal');
             
-            if (event.target == purchaseModal) {
-                purchaseModal.style.display = 'none';
-            }
-            if (event.target == freeTrialModal) {
-                freeTrialModal.style.display = 'none';
-            }
+            if (event.target == paymentModal) paymentModal.style.display = 'none';
+            if (event.target == successModal) successModal.style.display = 'none';
+            if (event.target == accountModal) accountModal.style.display = 'none';
+            if (event.target == freeTrialModal) freeTrialModal.style.display = 'none';
         }
 
-        // Smooth scroll for navigation links
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
                 if (href.startsWith('#') && href !== '#') {
                     e.preventDefault();
                     const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
+                    if (target) target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
         });
