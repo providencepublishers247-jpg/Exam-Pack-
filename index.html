@@ -540,6 +540,86 @@
             margin-bottom: 2rem;
         }
 
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 200;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            text-align: left;
+            font-size: 1.8rem;
+        }
+
+        .close-modal {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #aaa;
+            cursor: pointer;
+            transition: color 0.3s;
+            border: none;
+            background: none;
+            padding: 0;
+        }
+
+        .close-modal:hover {
+            color: #000;
+        }
+
+        .modal-body {
+            text-align: left;
+        }
+
+        .modal-body h3 {
+            color: #2c3e50;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .modal-body p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .modal-body ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+            color: #555;
+        }
+
+        .modal-body li {
+            margin: 0.5rem 0;
+        }
+
         /* Footer */
         footer {
             background: #2c3e50;
@@ -613,6 +693,11 @@
                 height: 55px;
                 font-size: 1.8rem;
             }
+
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+            }
         }
     </style>
 </head>
@@ -644,7 +729,7 @@
                 <p>Get Your Complete Exam Pack Now - Download & Start Using Today!</p>
             </div>
             <div class="cta-bar-buttons">
-                <button class="cta-bar-button" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})">Buy Now</button>
+                <button class="cta-bar-button" onclick="scrollToPricing()">Buy Now</button>
                 <a href="https://wa.me/2349079766694?text=Hi%20Providence%20Publishers%2C%20I%20am%20interested%20in%20your%20Exam%20Packs" target="_blank" class="cta-bar-button">WhatsApp Us</a>
             </div>
         </div>
@@ -656,8 +741,8 @@
             <h1>Complete Educational Exam Packs</h1>
             <p class="subtitle">From Nursery to Higher Primary - Everything You Need</p>
             <p>Comprehensive study materials and assessments for every grade level</p>
-            <button class="cta-button">Explore Packages</button>
-            <button class="cta-button secondary">Download Free Sample</button>
+            <button class="cta-button" onclick="scrollToPricing()">Explore Packages</button>
+            <button class="cta-button secondary" onclick="openFreeTrialModal()">Download Free Sample</button>
         </div>
     </section>
 
@@ -687,7 +772,7 @@
                         <li>Parent Communication Tools</li>
                         <li>Progress Tracking Forms</li>
                     </ul>
-                    <button class="cta-button">Get Nursery Pack</button>
+                    <button class="cta-button" onclick="openPurchaseModal('Nursery School Pack', 7500)">Get Nursery Pack</button>
                 </div>
 
                 <!-- Lower Primary Pack -->
@@ -710,7 +795,7 @@
                         <li style="margin-left: 1rem;">• Science</li>
                         <li style="margin-left: 1rem;">• Social Studies</li>
                     </ul>
-                    <button class="cta-button">Get Lower Primary Pack</button>
+                    <button class="cta-button" onclick="openPurchaseModal('Lower Primary Pack', 5000)">Get Lower Primary Pack</button>
                 </div>
 
                 <!-- Higher Primary Pack -->
@@ -733,7 +818,7 @@
                         <li style="margin-left: 1rem;">• Science & Technology</li>
                         <li style="margin-left: 1rem;">• Social Studies</li>
                     </ul>
-                    <button class="cta-button">Get Higher Primary Pack</button>
+                    <button class="cta-button" onclick="openPurchaseModal('Higher Primary Pack', 5000)">Get Higher Primary Pack</button>
                 </div>
             </div>
         </div>
@@ -862,7 +947,7 @@
                         <span>+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes! All materials are in printable PDF format. Teachers and school owners can distribute materials to their students. Please review the specific license terms for your usage rights.</p>
+                        <p>Yes! All materials are in printable PDF format. Teachers and school owners can distribute materials to their students. Please review the specific license terms for your pack.</p>
                     </div>
                 </div>
 
@@ -902,7 +987,7 @@
                         <span>+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>We accept multiple payment methods including bank transfers, online payment platforms, and other Nigerian payment options. Contact us on WhatsApp for specific payment method details.</p>
+                        <p>We accept multiple payment methods including bank transfers, online payment platforms, and other Nigerian payment options. Contact us on WhatsApp for specific payment methods.</p>
                     </div>
                 </div>
 
@@ -924,7 +1009,7 @@
         <div class="container">
             <h2>Ready to Transform Your Teaching & Learning?</h2>
             <p>Join thousands of educators, parents, and students achieving better results with Exam Pack</p>
-            <button class="cta-button">Choose Your Pack</button>
+            <button class="cta-button" onclick="scrollToPricing()">Choose Your Pack</button>
         </div>
     </section>
 
@@ -936,6 +1021,53 @@
             <p>Email: providencepublishers247@gmail.com | WhatsApp: <a href="https://wa.me/2349079766694">+234 907 976 6694</a></p>
         </div>
     </footer>
+
+    <!-- Purchase Modal -->
+    <div id="purchaseModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Pack Title</h2>
+                <button class="close-modal" onclick="closePurchaseModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Price:</strong> <span id="modalPrice">₦5,000</span></p>
+                <p style="margin-top: 1.5rem;">Thank you for your interest! To complete your purchase, please:</p>
+                <ol style="margin-top: 1rem; padding-left: 1.5rem;">
+                    <li>Click the WhatsApp button below</li>
+                    <li>Tell us which pack you'd like to purchase</li>
+                    <li>Receive payment instructions</li>
+                    <li>Get your download link after confirmation</li>
+                </ol>
+                <a href="https://wa.me/2349079766694?text=Hi%20Providence%20Publishers%2C%20I%20want%20to%20buy%20an%20Exam%20Pack" target="_blank" class="whatsapp-link" style="margin-top: 1.5rem; justify-content: center;">
+                    💬 Complete Purchase on WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Free Trial Modal -->
+    <div id="freeTrialModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Download Free Sample</h2>
+                <button class="close-modal" onclick="closeFreeTrialModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Get a free sample of our Exam Packs to experience the quality of our materials!</p>
+                <h3>Free Sample Includes:</h3>
+                <ul>
+                    <li>Sample lessons from one subject</li>
+                    <li>10 practice questions with solutions</li>
+                    <li>Progress tracking template</li>
+                    <li>Overview of all pack contents</li>
+                </ul>
+                <p style="margin-top: 1.5rem;"><strong>To get your free sample:</strong></p>
+                <a href="https://wa.me/2349079766694?text=Hi%20Providence%20Publishers%2C%20I%20would%20like%20to%20download%20your%20free%20sample%20pack" target="_blank" class="whatsapp-link" style="margin-top: 1rem; justify-content: center;">
+                    💬 Request Free Sample
+                </a>
+            </div>
+        </div>
+    </div>
 
     <script>
         function toggleFaq(element) {
@@ -952,6 +1084,43 @@
             if (!isActive) {
                 answer.classList.add('active');
                 element.querySelector('span:last-child').textContent = '−';
+            }
+        }
+
+        function scrollToPricing() {
+            const pricingSection = document.getElementById('pricing');
+            pricingSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function openPurchaseModal(packName, price) {
+            const modal = document.getElementById('purchaseModal');
+            document.getElementById('modalTitle').textContent = packName;
+            document.getElementById('modalPrice').textContent = '₦' + price.toLocaleString();
+            modal.style.display = 'block';
+        }
+
+        function closePurchaseModal() {
+            document.getElementById('purchaseModal').style.display = 'none';
+        }
+
+        function openFreeTrialModal() {
+            document.getElementById('freeTrialModal').style.display = 'block';
+        }
+
+        function closeFreeTrialModal() {
+            document.getElementById('freeTrialModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const purchaseModal = document.getElementById('purchaseModal');
+            const freeTrialModal = document.getElementById('freeTrialModal');
+            
+            if (event.target == purchaseModal) {
+                purchaseModal.style.display = 'none';
+            }
+            if (event.target == freeTrialModal) {
+                freeTrialModal.style.display = 'none';
             }
         }
 
